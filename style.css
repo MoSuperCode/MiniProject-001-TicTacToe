@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+#gameboard {
+  width: 300px;
+  height: 300px;
+  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
+  border: solid 1px;
+}
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border: solid 2px;
+  box-sizing: border-box;
+}
+.circle {
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  border: solid 15px blue;
+  box-sizing: border-box;
+}
+
+.cross {
+  height: 90px;
+  width: 90px;
+  position: relative;
+  transform: rotate(45deg);
+}
+.cross:before,
+.cross:after {
+  content: "";
+  position: absolute;
+  background-color: red;
+}
+.cross:before {
+  left: 50%;
+  width: 30%;
+  margin-left: -15%;
+  height: 100%;
+}
+.cross::after {
+  top: 50%;
+  height: 30%;
+  margin-top: -15%;
+  width: 100%;
+}
+
+.button {
+  margin: 5vh;
+  padding: 7px 40px;
+  border-radius: 50px;
+  border: none;
+  font-weight: 700;
+  font-size: 3rem;
+  background-color: #89cff0;
+  color: white;
+  cursor: pointer;
+}
+.button:active {
+  background-color: #03a9f6;
+}
+
+#emitter {
+  visibility: hidden;
+  background-color: #222;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: 40%;
+  left: 0%;
+}
+.dot-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible;
+  z-index: 5000;
+  pointer-events: none;
+}
+.dot {
+  position: absolute;
+  pointer-events: none; /*performance optimization*/
+}
